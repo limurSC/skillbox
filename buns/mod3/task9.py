@@ -1,4 +1,6 @@
-n = int(input())
+file = open("input.txt", "r")
+n = int(file.read())
+file.close()
 x, y = 0, 0
 sideNum = 1
 sideLength = 1
@@ -19,4 +21,6 @@ while n > i:
             dx, dy = 0, 0
             break
     sideLength += 1
-print(x, y)
+file = open("output.txt", "w")
+file.write(x, y)
+file.close()

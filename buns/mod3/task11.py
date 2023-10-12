@@ -4,11 +4,10 @@ matrix = list()
 matrix.append(s)
 for i in range(k - 1):
     matrix.append(input())
-
 result = "Ничья"
 
 for i in range(k):
-    checkChar = matrix[i][0]
+    checkChar = matrix[i][i]
     linСhecker = True
     columnСhecker = True
     for j in range(k):
