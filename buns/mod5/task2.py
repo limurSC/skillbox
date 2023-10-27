@@ -23,14 +23,28 @@ class Queue:
         """
         возвращаем элемент val из начала списка с удалением из списка
         """
-        pass
+				 if self.start is None:
+        	pass
+				 val = self.start.data
+				 self.start = self.start.nref
+				 if self.start is None:
+				 		self.end = None
+				 else:
+						self.start.pref = None
         return val
 
     def push(self, val):
         """
         добавление элемента val в конец списка
         """
-        pass
+        newNode = Node(val)
+				 if self.start is None:
+						self.start = newNode
+						self.end = newNode
+				 else:
+						newNode.pref = self.pref
+						self.end.nref = newNode
+						self.end = newNode
 
     def insert(self, n, val):
         """
