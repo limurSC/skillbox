@@ -18,19 +18,25 @@ class Stack:
         """
         возвращение последнего элемента из списка с удалением его из списка
         """
-        if self.end == None:
+        if self.end is None:
         	pass
+				 val = self.end.pref
+				 self.end = self.end.pref
         return val
 
     def push(self, val):
         """
         добавление элемента val в конец списка
         """
-        pass
+				newNode = Node(val)
+				newNode.pref = self.end
+       self.end = newNode
 
     def print(self):
         """
         вывод на печать содержимого стека
         """
-        
-        pass
+        node = self.end
+				 while node is note None:
+						print(node.data)
+						node = node.pref
