@@ -50,10 +50,39 @@ class Queue:
         """
         вставить элемент val между элементами с номерами n-1 и n
         """
-        pass
+        
+				 newNode = Node(val)
+        if n == 0:
+            newNode.nref = self.start
+            if self.start is not None:
+                self.start.pref = newNode
+            self.start = newNode
+            if self.end is None:
+                self.end = newNode
+        else:
+            node = self.start
+            count = 0
+            while node is not None and count < n:
+                node = node.nref
+                count += 1
+            if node is None:
+                self.end.nref = newNode
+                newNode.pref = self.end
+                self.end = newNode
+            else:
+                newNode.nref = node
+                newNode.pref = node.pref
+                node.pref.nref = newNode
+                node.pref = newNode
 
     def print(self):
         """
         вывод на печать содержимого очереди
         """
-        pass
+        node = self.start
+        while node is not None:
+            print(node.data)
+            node = node.nref
+
+
+
